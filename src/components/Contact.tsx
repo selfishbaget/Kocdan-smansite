@@ -57,21 +57,24 @@ export default function Contact() {
     setError('');
     setLoading(true);
 
-    const formData = new URLSearchParams();
-    formData.append('form-name', 'on-gorusme');
-    Object.entries(form).forEach(([key, value]) => {
-      formData.append(key, value);
-    });
-
     try {
-      const response = await fetch('/', {
+      const response = await fetch('https://api.web3forms.com/submit', {
         method: 'POST',
-        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-        body: formData.toString(),
+        headers: {
+          'Content-Type': 'application/json',
+          Accept: 'application/json',
+        },
+        body: JSON.stringify({
+          access_key: '9bfbe2ae-a2a3-45b7-850f-9eb613ba1db0',
+          subject: `Yeni Ön Görüşme Talebi: ${form.name}`,
+          from_name: 'Öğrenci Koçluğu Web Sitesi',
+          ...form,
+        }),
       });
 
-      if (!response.ok) {
-        throw new Error('Gönderim başarısız');
+      const result = await response.json();
+      if (!result.success) {
+        throw new Error(result.message);
       }
 
       setSuccess(true);
@@ -165,15 +168,7 @@ export default function Contact() {
                 </button>
               </div>
             ) : (
-              <form
-                name="on-gorusme"
-                method="POST"
-                data-netlify="true"
-                onSubmit={handleSubmit}
-                className="bg-white rounded-2xl border border-slate-200 shadow-lg p-8 space-y-5"
-              >
-                <input type="hidden" name="form-name" value="on-gorusme" />
-
+              <form onSubmit={handleSubmit} className="bg-white rounded-2xl border border-slate-200 shadow-lg p-8 space-y-5">
                 <div className="grid sm:grid-cols-2 gap-5">
                   <div>
                     <label className="block text-slate-700 text-sm font-semibold mb-2">Ad Soyad *</label>
