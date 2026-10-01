@@ -1,6 +1,5 @@
 import { useState } from 'react';
 import { Phone, Mail, MapPin, Send, CheckCircle } from 'lucide-react';
-import { supabase, type ContactSubmission } from '@/lib/supabase';
 
 const gradeOptions = [
   '8. Sınıf (LGS)',
@@ -22,6 +21,16 @@ const goalOptions = [
   'Veli danışmanlığı',
   'Genel bilgi almak istiyorum',
 ];
+
+interface ContactSubmission {
+  name: string;
+  email: string;
+  phone: string;
+  grade_level: string;
+  primary_goal: string;
+  preferred_date: string;
+  message: string;
+}
 
 const initialForm: ContactSubmission = {
   name: '',
@@ -47,9 +56,24 @@ export default function Contact() {
     e.preventDefault();
     setError('');
     setLoading(true);
+
+    const formData = new URLSearchParams();
+    formData.append('form-name', 'on-gorusme');
+    Object.entries(form).forEach(([key, value]) => {
+      formData.append(key, value);
+    });
+
     try {
-      const { error: dbError } = await supabase.from('contact_submissions').insert([form]);
-      if (dbError) throw dbError;
+      const response = await fetch('/', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: formData.toString(),
+      });
+
+      if (!response.ok) {
+        throw new Error('Gönderim başarısız');
+      }
+
       setSuccess(true);
       setForm(initialForm);
     } catch {
@@ -141,12 +165,21 @@ export default function Contact() {
                 </button>
               </div>
             ) : (
-              <form onSubmit={handleSubmit} className="bg-white rounded-2xl border border-slate-200 shadow-lg p-8 space-y-5">
+              <form
+                name="on-gorusme"
+                method="POST"
+                data-netlify="true"
+                onSubmit={handleSubmit}
+                className="bg-white rounded-2xl border border-slate-200 shadow-lg p-8 space-y-5"
+              >
+                <input type="hidden" name="form-name" value="on-gorusme" />
+
                 <div className="grid sm:grid-cols-2 gap-5">
                   <div>
                     <label className="block text-slate-700 text-sm font-semibold mb-2">Ad Soyad *</label>
                     <input
                       required
+                      name="name"
                       value={form.name}
                       onChange={(e) => set('name', e.target.value)}
                       placeholder="Adınız ve soyadınız"
@@ -158,6 +191,7 @@ export default function Contact() {
                     <input
                       required
                       type="email"
+                      name="email"
                       value={form.email}
                       onChange={(e) => set('email', e.target.value)}
                       placeholder="ornek@email.com"
@@ -171,6 +205,7 @@ export default function Contact() {
                     <label className="block text-slate-700 text-sm font-semibold mb-2">Telefon</label>
                     <input
                       type="tel"
+                      name="phone"
                       value={form.phone}
                       onChange={(e) => set('phone', e.target.value)}
                       placeholder="+90 5xx xxx xx xx"
@@ -181,6 +216,7 @@ export default function Contact() {
                     <label className="block text-slate-700 text-sm font-semibold mb-2">Tercih Edilen Tarih</label>
                     <input
                       type="date"
+                      name="preferred_date"
                       value={form.preferred_date}
                       onChange={(e) => set('preferred_date', e.target.value)}
                       className="w-full px-4 py-3 rounded-xl border border-slate-200 text-slate-600 text-sm focus:outline-none focus:border-teal-400 focus:ring-2 focus:ring-teal-100 transition-all"
@@ -191,6 +227,7 @@ export default function Contact() {
                 <div>
                   <label className="block text-slate-700 text-sm font-semibold mb-2">Sınıf / Düzey</label>
                   <select
+                    name="grade_level"
                     value={form.grade_level}
                     onChange={(e) => set('grade_level', e.target.value)}
                     className="w-full px-4 py-3 rounded-xl border border-slate-200 text-slate-700 text-sm focus:outline-none focus:border-teal-400 focus:ring-2 focus:ring-teal-100 transition-all bg-white"
@@ -203,6 +240,7 @@ export default function Contact() {
                 <div>
                   <label className="block text-slate-700 text-sm font-semibold mb-2">Öncelikli Hedef</label>
                   <select
+                    name="primary_goal"
                     value={form.primary_goal}
                     onChange={(e) => set('primary_goal', e.target.value)}
                     className="w-full px-4 py-3 rounded-xl border border-slate-200 text-slate-700 text-sm focus:outline-none focus:border-teal-400 focus:ring-2 focus:ring-teal-100 transition-all bg-white"
@@ -216,6 +254,7 @@ export default function Contact() {
                   <label className="block text-slate-700 text-sm font-semibold mb-2">Mesajınız</label>
                   <textarea
                     rows={4}
+                    name="message"
                     value={form.message}
                     onChange={(e) => set('message', e.target.value)}
                     placeholder="Mevcut durumunuz, beklentileriniz veya sormak istedikleriniz..."
