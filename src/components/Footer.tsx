@@ -122,7 +122,7 @@ export default function Footer() {
           <div>
             <h4 className="text-white font-bold text-sm mb-5 uppercase tracking-wider">İletişim</h4>
             <div className="space-y-3 text-sm text-slate-400">
-              <p>+90 (530) 460 04 17</p>
+              <p>+90 (553) 777 04 17</p>
               <p>berkay_bulut_17@hotmail.com</p>
               <p>Balıkesir, Türkiye</p>
               <p className="pt-2">Online görüşme imkanı mevcuttur.</p>
