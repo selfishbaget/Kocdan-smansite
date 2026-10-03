@@ -4,8 +4,8 @@ const packages = [
   {
     name: 'Temel Koçluk',
     tagline: 'Başlangıç için ideal',
-    price: '₺1.200',
-    period: '/ ay',
+    price: '',
+    period: '',
     color: 'border-slate-200',
     headerColor: 'bg-slate-50',
     btnClass: 'bg-slate-800 hover:bg-slate-700 text-white',
@@ -24,8 +24,8 @@ const packages = [
   {
     name: 'Yoğun Sınav Koçluğu',
     tagline: 'En çok tercih edilen',
-    price: '₺2.400',
-    period: '/ ay',
+    price: '',
+    period: '',
     color: 'border-teal-500',
     headerColor: 'bg-gradient-to-br from-teal-600 to-teal-700',
     btnClass: 'bg-teal-500 hover:bg-teal-400 text-white shadow-lg hover:shadow-teal-200',
@@ -44,8 +44,8 @@ const packages = [
   {
     name: 'Derece / Hedef Odaklı',
     tagline: 'En yüksek performans',
-    price: '₺3.800',
-    period: '/ ay',
+    price: '',
+    period: '',
     color: 'border-amber-400',
     headerColor: 'bg-gradient-to-br from-amber-500 to-orange-500',
     btnClass: 'bg-amber-500 hover:bg-amber-400 text-white shadow-lg hover:shadow-amber-200',
