@@ -203,7 +203,7 @@ export default function Contact() {
                       name="phone"
                       value={form.phone}
                       onChange={(e) => set('phone', e.target.value)}
-                      placeholder="+90 5xx xxx xx xx"
+                      placeholder="+90 530 460 04 17"
                       className="w-full px-4 py-3 rounded-xl border border-slate-200 text-slate-700 text-sm focus:outline-none focus:border-teal-400 focus:ring-2 focus:ring-teal-100 transition-all"
                     />
                   </div>
