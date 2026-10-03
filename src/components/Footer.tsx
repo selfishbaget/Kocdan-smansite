@@ -19,10 +19,10 @@ const services = [
 ];
 
 const socials = [
-  { icon: Instagram, href: '#', label: 'Instagram' },
+  { icon: Instagram, href: 'https://www.instagram.com/psk.dan.berkaybulut/', label: 'Instagram' },
   { icon: Twitter, href: '#', label: 'Twitter' },
   { icon: Youtube, href: '#', label: 'YouTube' },
-  { icon: Linkedin, href: '#', label: 'LinkedIn' },
+  { icon: Linkedin, href: 'https://www.linkedin.com/in/berkay--bulut/', label: 'LinkedIn' },
 ];
 
 export default function Footer() {
