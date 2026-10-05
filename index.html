@@ -4,28 +4,91 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/png" href="/WhatsApp_Image_2026-07-29_at_15.03.40.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Psk.Dan. Berkay Bulut — Öğrenci Koçluğu & Psikolojik Danışmanlık</title>
-    <meta name="description" content="Akademik koçluk ve psikolojik danışmanlık ile öğrencilerin YKS, LGS ve üniversite hedeflerine ulaşmalarını destekliyorum." />
-    <meta property="og:title" content="Psk.Dan. Berkay Bulut — Öğrenci Koçluğu" />
-    <meta property="og:description" content="%80 Akademik Koçluk + %20 Psikolojik Destek ile bütüncül bir gelişim yolculuğu." />
+
+    <!-- Temel SEO Başlık ve Açıklamaları -->
+    <title>Psk. Dan. Berkay Bulut | YKS & LGS Öğrenci Koçluğu ve Psikolojik Danışmanlık</title>
+    <meta name="description" content="YKS ve LGS sürecindeki öğrenciler için birebir koçluk, çalışma programı takibi ve sınav kaygısı yönetimi. Ücretsiz ön görüşme için hemen randevu alın." />
+    <meta name="keywords" content="öğrenci koçluğu, yks koçluğu, lgs koçluğu, psikolojik danışmanlık, sınav kaygısı, berkay bulut, akademik danışmanlık" />
+    <meta name="author" content="Psk. Dan. Berkay Bulut" />
+    <link rel="canonical" href="https://berkaybulut.net/" />
+
+    <!-- Sosyal Medya ve WhatsApp Paylaşım Önizlemeleri (Open Graph) -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://berkaybulut.net/" />
+    <meta property="og:title" content="Psk. Dan. Berkay Bulut | Öğrenci Koçluğu & Danışmanlık" />
+    <meta property="og:description" content="%80 Akademik Koçluk + %20 Psikolojik Destek ile YKS & LGS hedeflerinize emin adımlarla ilerleyin." />
+    <meta property="og:image" content="https://berkaybulut.net/WhatsApp_Image_2026-07-29_at_15.03.40.png" />
+
+    <!-- Twitter / X Önizleme -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Psk. Dan. Berkay Bulut | Öğrenci Koçluğu & Danışmanlık" />
+    <meta name="twitter:description" content="Bütüncül yaklaşım ile YKS ve LGS hazırlık koçluğu. Ücretsiz ön görüşme imkanı." />
+    <meta name="twitter:image" content="https://berkaybulut.net/WhatsApp_Image_2026-07-29_at_15.03.40.png" />
+
+    <!-- Google AI ve Arama Motorları İçin Yapılandırılmış Veri (Schema.org / JSON-LD) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "ProfessionalService",
+      "name": "Psk. Dan. Berkay Bulut — Öğrenci Koçluğu & Psikolojik Danışmanlık",
+      "image": "https://berkaybulut.net/WhatsApp_Image_2026-07-29_at_15.03.40.png",
+      "url": "https://berkaybulut.net/",
+      "priceRange": "₺₺",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "İstanbul",
+        "addressCountry": "TR"
+      },
+      "description": "YKS ve LGS sınavlarına hazırlanan öğrenciler için akademik koçluk, haftalık ders planlaması ve sınav kaygısı desteği.",
+      "areaServed": "TR",
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Koçluk Paketleri",
+        "itemListElement": [
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Temel Koçluk Paketi"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Yoğun Sınav Koçluğu Paketi"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Derece / Hedef Odaklı Koçluk Paketi"
+            }
+          }
+        ]
+      }
+    }
+    </script>
+
+    <!-- Yazı Tipleri -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
-    <meta property="og:image" content="https://bolt.new/static/og_default.png">
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:image" content="https://bolt.new/static/og_default.png">
-</head>
+  </head>
   <body>
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
+
+    <!-- Netlify Form Entegrasyonu -->
     <form name="on-gorusme" netlify netlify-honeypot="bot-field" hidden>
-  <input type="text" name="name" />
-  <input type="email" name="email" />
-  <input type="tel" name="phone" />
-  <input type="date" name="preferred_date" />
-  <input type="text" name="grade_level" />
-  <input type="text" name="primary_goal" />
-  <textarea name="message"></textarea>
-</form>
+      <input type="text" name="name" />
+      <input type="email" name="email" />
+      <input type="tel" name="phone" />
+      <input type="date" name="preferred_date" />
+      <input type="text" name="grade_level" />
+      <input type="text" name="primary_goal" />
+      <textarea name="message"></textarea>
+    </form>
   </body>
 </html>
